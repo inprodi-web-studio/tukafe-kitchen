@@ -717,7 +717,7 @@ function PlasmicHome__RenderFunc(props) {
                   sty.text
                 )}
               >
-                {"Sin Ordenes Pendientes por Realizar"}
+                {"Sin \u00d3rdenes Pendientes por Realizar"}
               </div>
             </Stack__>
           ) : null}
