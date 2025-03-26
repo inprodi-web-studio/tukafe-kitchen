@@ -9,6 +9,10 @@
   min-height: 0;
   padding: 0px;
 }
+.periodicRequest:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
 .worksRequest:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;

@@ -140,6 +140,38 @@ function PlasmicHome__RenderFunc(props) {
           )}
         >
           <SideEffect
+            data-plasmic-name={"periodicRequest"}
+            data-plasmic-override={overrides.periodicRequest}
+            className={classNames("__wab_instance", sty.periodicRequest)}
+            onMount={async () => {
+              const $steps = {};
+              $steps["runCode"] = true
+                ? (() => {
+                    const actionArgs = {
+                      customFunction: async () => {
+                        return (() => {
+                          return setInterval(() => {
+                            $state.works.refresh++;
+                          }, 30000);
+                        })();
+                      }
+                    };
+                    return (({ customFunction }) => {
+                      return customFunction();
+                    })?.apply(null, [actionArgs]);
+                  })()
+                : undefined;
+              if (
+                $steps["runCode"] != null &&
+                typeof $steps["runCode"] === "object" &&
+                typeof $steps["runCode"].then === "function"
+              ) {
+                $steps["runCode"] = await $steps["runCode"];
+              }
+            }}
+          />
+
+          <SideEffect
             data-plasmic-name={"worksRequest"}
             data-plasmic-override={overrides.worksRequest}
             className={classNames("__wab_instance", sty.worksRequest)}
@@ -730,6 +762,7 @@ function PlasmicHome__RenderFunc(props) {
 const PlasmicDescendants = {
   mainSection: [
     "mainSection",
+    "periodicRequest",
     "worksRequest",
     "topbar",
     "logo",
@@ -742,6 +775,7 @@ const PlasmicDescendants = {
     "text"
   ],
 
+  periodicRequest: ["periodicRequest"],
   worksRequest: ["worksRequest"],
   topbar: ["topbar", "logo", "button", "svg"],
   logo: ["logo"],
@@ -808,6 +842,7 @@ export const PlasmicHome = Object.assign(
   withUsePlasmicAuth(makeNodeComponent("mainSection")),
   {
     // Helper components rendering sub-elements
+    periodicRequest: makeNodeComponent("periodicRequest"),
     worksRequest: makeNodeComponent("worksRequest"),
     topbar: makeNodeComponent("topbar"),
     logo: makeNodeComponent("logo"),
