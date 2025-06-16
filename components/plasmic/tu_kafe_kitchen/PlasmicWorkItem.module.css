@@ -12,7 +12,7 @@
   border-radius: 6px;
   padding: 0px;
 }
-.freeBox {
+.freeBox__lbM59 {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -24,14 +24,25 @@
   min-width: 0;
   padding: 16px;
 }
-.customer {
+.freeBox__zmBzg {
   display: flex;
   flex-direction: row;
   position: relative;
+  align-items: center;
+  justify-content: flex-start;
   width: 100%;
   height: auto;
   max-width: 100%;
   margin-bottom: 20px;
+  min-width: 0;
+  padding: 0px;
+}
+.customer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
   min-width: 0;
   padding: 0px;
 }
@@ -86,6 +97,57 @@
   font-weight: 500;
   padding-top: 0px;
   min-width: 0;
+}
+.onlineBadge {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  border-radius: 20px;
+  padding: 4px 10px;
+  border: 1px solid var(--token-Pxe4wDL2kJpb);
+}
+.onlineBadge > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-left: calc(0px - 8px);
+  width: calc(100% + 8px);
+}
+.onlineBadge > :global(.__wab_flex-container) > *,
+.onlineBadge > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.onlineBadge > :global(.__wab_flex-container) > picture > img,
+.onlineBadge
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 8px;
+}
+.freeBox__zwr1P {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 6px;
+  height: 6px;
+  max-width: 100%;
+  background: var(--token-sn6Zb6km7CqW);
+  flex-shrink: 0;
+  border-radius: 4px;
+  padding: 0px;
+}
+.text__r5Os1 {
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  color: #000000;
+  font-weight: 600;
+  line-height: 1;
 }
 .text___7U1NP {
   width: 100%;

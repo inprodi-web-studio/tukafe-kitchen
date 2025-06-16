@@ -1,6 +1,6 @@
-// @ts-nocheck
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /* prettier-ignore-start */
 /** @jsxRuntime classic */
 /** @jsx createPlasmicElementProxy */
@@ -106,57 +106,87 @@ function PlasmicWorkItem__RenderFunc(props) {
         sty.workItem
       )}
     >
-      <div
-        data-plasmic-name={"freeBox"}
-        data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox)}
-      >
-        <Stack__
-          as={"div"}
-          data-plasmic-name={"customer"}
-          data-plasmic-override={overrides.customer}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.customer)}
-        >
-          <div
-            data-plasmic-name={"avatar"}
-            data-plasmic-override={overrides.avatar}
-            className={classNames(projectcss.all, sty.avatar)}
+      <div className={classNames(projectcss.all, sty.freeBox__lbM59)}>
+        <div className={classNames(projectcss.all, sty.freeBox__zmBzg)}>
+          <Stack__
+            as={"div"}
+            data-plasmic-name={"customer"}
+            data-plasmic-override={overrides.customer}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.customer)}
           >
-            <IconoDuotonoSvgIcon
-              data-plasmic-name={"svg"}
-              data-plasmic-override={overrides.svg}
-              className={classNames(projectcss.all, sty.svg)}
-              role={"img"}
-            />
-          </div>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___6M1Gw
-            )}
-          >
-            <React.Fragment>
-              {(() => {
-                try {
-                  return (() => {
-                    const { customer } = $props.work;
-                    return customer;
-                  })();
-                } catch (e) {
-                  if (
-                    e instanceof TypeError ||
-                    e?.plasmicType === "PlasmicUndefinedDataError"
-                  ) {
-                    return "Customer";
+            <div
+              data-plasmic-name={"avatar"}
+              data-plasmic-override={overrides.avatar}
+              className={classNames(projectcss.all, sty.avatar)}
+            >
+              <IconoDuotonoSvgIcon
+                data-plasmic-name={"svg"}
+                data-plasmic-override={overrides.svg}
+                className={classNames(projectcss.all, sty.svg)}
+                role={"img"}
+              />
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___6M1Gw
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return (() => {
+                      const { customer } = $props.work;
+                      return customer;
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "Customer";
+                    }
+                    throw e;
                   }
-                  throw e;
-                }
-              })()}
-            </React.Fragment>
-          </div>
-        </Stack__>
+                })()}
+              </React.Fragment>
+            </div>
+          </Stack__>
+          {(() => {
+            try {
+              return $props.work.isOnline;
+            } catch (e) {
+              if (
+                e instanceof TypeError ||
+                e?.plasmicType === "PlasmicUndefinedDataError"
+              ) {
+                return true;
+              }
+              throw e;
+            }
+          })() ? (
+            <Stack__
+              as={"div"}
+              data-plasmic-name={"onlineBadge"}
+              data-plasmic-override={overrides.onlineBadge}
+              hasGap={true}
+              className={classNames(projectcss.all, sty.onlineBadge)}
+            >
+              <div className={classNames(projectcss.all, sty.freeBox__zwr1P)} />
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__r5Os1
+                )}
+              >
+                {"Online"}
+              </div>
+            </Stack__>
+          ) : null}
+        </div>
         <div
           className={classNames(
             projectcss.all,
@@ -378,19 +408,19 @@ function PlasmicWorkItem__RenderFunc(props) {
 const PlasmicDescendants = {
   workItem: [
     "workItem",
-    "freeBox",
     "customer",
     "avatar",
     "svg",
+    "onlineBadge",
     "attributes",
     "item",
     "button"
   ],
 
-  freeBox: ["freeBox", "customer", "avatar", "svg", "attributes", "item"],
   customer: ["customer", "avatar", "svg"],
   avatar: ["avatar", "svg"],
   svg: ["svg"],
+  onlineBadge: ["onlineBadge"],
   attributes: ["attributes", "item"],
   item: ["item"],
   button: ["button"]
@@ -428,10 +458,10 @@ export const PlasmicWorkItem = Object.assign(
   makeNodeComponent("workItem"),
   {
     // Helper components rendering sub-elements
-    freeBox: makeNodeComponent("freeBox"),
     customer: makeNodeComponent("customer"),
     avatar: makeNodeComponent("avatar"),
     svg: makeNodeComponent("svg"),
+    onlineBadge: makeNodeComponent("onlineBadge"),
     attributes: makeNodeComponent("attributes"),
     item: makeNodeComponent("item"),
     button: makeNodeComponent("button"),
