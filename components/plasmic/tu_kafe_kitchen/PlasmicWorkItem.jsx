@@ -187,6 +187,76 @@ function PlasmicWorkItem__RenderFunc(props) {
             </Stack__>
           ) : null}
         </div>
+        {(() => {
+          try {
+            return $props.work.prepareIn;
+          } catch (e) {
+            if (
+              e instanceof TypeError ||
+              e?.plasmicType === "PlasmicUndefinedDataError"
+            ) {
+              return true;
+            }
+            throw e;
+          }
+        })() ? (
+          <div className={classNames(projectcss.all, sty.freeBox__ftkBw)}>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___1JOz
+              )}
+            >
+              {"Preparar a las:"}
+            </div>
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__arUv
+              )}
+            >
+              <React.Fragment>
+                {(() => {
+                  try {
+                    return (() => {
+                      const time = new Date($props.work.prepareIn);
+                      const mexicoTime = new Date(
+                        time.toLocaleString("en-US", {
+                          timeZone: "America/Mexico_City"
+                        })
+                      );
+                      const nowMexico = new Date(
+                        new Date().toLocaleString("en-US", {
+                          timeZone: "America/Mexico_City"
+                        })
+                      );
+                      if (mexicoTime <= nowMexico) {
+                        return "\xA1AHORA!";
+                      }
+                      const timeFormatter = new Intl.DateTimeFormat("es-MX", {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        hour12: true,
+                        timeZone: "America/Mexico_City"
+                      });
+                      return timeFormatter.format(time);
+                    })();
+                  } catch (e) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
+                      return "Preparar a las:";
+                    }
+                    throw e;
+                  }
+                })()}
+              </React.Fragment>
+            </div>
+          </div>
+        ) : null}
         <div
           className={classNames(
             projectcss.all,
