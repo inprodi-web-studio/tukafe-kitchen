@@ -11,7 +11,6 @@
 import * as React from "react";
 import { useRouter } from "next/router";
 import {
-  Stack as Stack__,
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts,
@@ -20,9 +19,10 @@ import {
 } from "@plasmicapp/react-web";
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
 import { AntdButton } from "@plasmicpkgs/antd5/skinny/registerButton";
+import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: seerW9hP5yg4q6Ka6kucWa/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_antd_5_hostless } from "../antd_5_hostless/PlasmicStyleTokensProvider"; // plasmic-import: ohDidvG9XsCeFumugENU3J/styleTokensProvider
+import { _useStyleTokens as useStyleTokens_plasmic_rich_components } from "../plasmic_rich_components/PlasmicStyleTokensProvider"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/styleTokensProvider
 import "@plasmicapp/react-web/lib/plasmic.css";
-import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
-import plasmic_plasmic_rich_components_css from "../plasmic_rich_components/plasmic.module.css"; // plasmic-import: jkU633o1Cz7HrJdwdxhVHk/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: seerW9hP5yg4q6Ka6kucWa/projectcss
 import sty from "./PlasmicWorkItem.module.css"; // plasmic-import: WMA5tJ2F_x-C/css
 import IconoDuotonoSvgIcon from "./icons/PlasmicIcon__IconoDuotonoSvg"; // plasmic-import: UjSd7EW9Px5w/icon
@@ -89,6 +89,11 @@ function PlasmicWorkItem__RenderFunc(props) {
     $queries: {},
     $refs
   });
+  const styleTokensClassNames = _useStyleTokens();
+  const styleTokensClassNames_antd_5_hostless =
+    useStyleTokens_antd_5_hostless();
+  const styleTokensClassNames_plasmic_rich_components =
+    useStyleTokens_plasmic_rich_components();
   return (
     <div
       data-plasmic-name={"workItem"}
@@ -100,19 +105,17 @@ function PlasmicWorkItem__RenderFunc(props) {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens,
-        plasmic_antd_5_hostless_css.plasmic_tokens,
-        plasmic_plasmic_rich_components_css.plasmic_tokens,
+        styleTokensClassNames,
+        styleTokensClassNames_antd_5_hostless,
+        styleTokensClassNames_plasmic_rich_components,
         sty.workItem
       )}
     >
       <div className={classNames(projectcss.all, sty.freeBox__lbM59)}>
         <div className={classNames(projectcss.all, sty.freeBox__zmBzg)}>
-          <Stack__
-            as={"div"}
+          <div
             data-plasmic-name={"customer"}
             data-plasmic-override={overrides.customer}
-            hasGap={true}
             className={classNames(projectcss.all, sty.customer)}
           >
             <div
@@ -153,7 +156,7 @@ function PlasmicWorkItem__RenderFunc(props) {
                 })()}
               </React.Fragment>
             </div>
-          </Stack__>
+          </div>
           {(() => {
             try {
               return $props.work.isOnline;
@@ -167,11 +170,9 @@ function PlasmicWorkItem__RenderFunc(props) {
               throw e;
             }
           })() ? (
-            <Stack__
-              as={"div"}
+            <div
               data-plasmic-name={"onlineBadge"}
               data-plasmic-override={overrides.onlineBadge}
-              hasGap={true}
               className={classNames(projectcss.all, sty.onlineBadge)}
             >
               <div className={classNames(projectcss.all, sty.freeBox__zwr1P)} />
@@ -184,7 +185,7 @@ function PlasmicWorkItem__RenderFunc(props) {
               >
                 {"Online"}
               </div>
-            </Stack__>
+            </div>
           ) : null}
         </div>
         {(() => {
@@ -299,11 +300,9 @@ function PlasmicWorkItem__RenderFunc(props) {
             throw e;
           }
         })() ? (
-          <Stack__
-            as={"div"}
+          <div
             data-plasmic-name={"attributes"}
             data-plasmic-override={overrides.attributes}
-            hasGap={true}
             className={classNames(projectcss.all, sty.attributes)}
           >
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
@@ -327,11 +326,9 @@ function PlasmicWorkItem__RenderFunc(props) {
               const modificator = __plasmic_item_0;
               const modificatorIndex = __plasmic_idx_0;
               return (
-                <Stack__
-                  as={"div"}
+                <div
                   data-plasmic-name={"item"}
                   data-plasmic-override={overrides.item}
-                  hasGap={true}
                   className={classNames(projectcss.all, sty.item)}
                   key={modificatorIndex}
                 >
@@ -372,10 +369,10 @@ function PlasmicWorkItem__RenderFunc(props) {
                       </React.Fragment>
                     </div>
                   ) : null}
-                </Stack__>
+                </div>
               );
             })}
-          </Stack__>
+          </div>
         ) : null}
       </div>
       <AntdButton

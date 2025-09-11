@@ -78,7 +78,8 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/plasmic_basic_components/PlasmicStyleTokensProvider.jsx",
+      "projectModuleFilePath": "plasmic/plasmic_basic_components/plasmic.jsx"
     },
     {
       "projectId": "8PtdGodUbexNYgkuyBUcWu",
@@ -101,7 +102,8 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/plasmic_embed_css/PlasmicStyleTokensProvider.jsx",
+      "projectModuleFilePath": "plasmic/plasmic_embed_css/plasmic.jsx"
     },
     {
       "projectId": "9Vr5YWkf3w7jj6SsTcCEta",
@@ -124,7 +126,8 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/loading_boundary/PlasmicStyleTokensProvider.jsx",
+      "projectModuleFilePath": "plasmic/loading_boundary/plasmic.jsx"
     },
     {
       "projectId": "jkU633o1Cz7HrJdwdxhVHk",
@@ -179,7 +182,8 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/plasmic_rich_components/PlasmicStyleTokensProvider.jsx",
+      "projectModuleFilePath": "plasmic/plasmic_rich_components/plasmic.jsx"
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -580,7 +584,8 @@
         }
       ],
       "customFunctions": [],
-      "jsBundleThemes": []
+      "styleTokensProviderFilePath": "plasmic/antd_5_hostless/PlasmicStyleTokensProvider.jsx",
+      "projectModuleFilePath": "plasmic/antd_5_hostless/plasmic.jsx"
     },
     {
       "projectId": "seerW9hP5yg4q6Ka6kucWa",
@@ -628,6 +633,20 @@
           "cssFilePath": "plasmic/tu_kafe_kitchen/PlasmicWorkItem.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "ImA7pb2DyG8q",
+          "name": "Branch",
+          "type": "managed",
+          "projectId": "seerW9hP5yg4q6Ka6kucWa",
+          "renderModuleFilePath": "plasmic/tu_kafe_kitchen/PlasmicBranch.jsx",
+          "importSpec": {
+            "modulePath": "../pages/kitchen/[id].jsx"
+          },
+          "cssFilePath": "plasmic/tu_kafe_kitchen/PlasmicBranch.module.css",
+          "scheme": "blackbox",
+          "componentType": "page",
+          "path": "/kitchen/[id]"
         }
       ],
       "icons": [
@@ -686,7 +705,9 @@
           "componentImportPath": "@plasmicapp/react-web/lib/data-sources"
         }
       ],
-      "customFunctions": []
+      "customFunctions": [],
+      "styleTokensProviderFilePath": "plasmic/tu_kafe_kitchen/PlasmicStyleTokensProvider.jsx",
+      "projectModuleFilePath": "plasmic/tu_kafe_kitchen/plasmic.jsx"
     }
   ],
   "globalVariants": {
@@ -703,6 +724,6 @@
   "nextjsConfig": {
     "pagesDir": "../pages"
   },
-  "cliVersion": "0.1.340",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.340/dist/plasmic.schema.json"
+  "cliVersion": "0.1.342",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.342/dist/plasmic.schema.json"
 }
