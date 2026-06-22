@@ -27,5 +27,6 @@
   },
   "engines": {
     "node": "18.20.8"
-  }
+  },
+  "packageManager": "yarn@4.16.0"
 }
