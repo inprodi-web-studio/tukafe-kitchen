@@ -228,48 +228,41 @@ function PlasmicBranch__RenderFunc(props) {
               ) {
                 $steps["loading"] = await $steps["loading"];
               }
-              $steps["getRequest"] = $ctx.params.id
-                ? (() => {
-                    const actionArgs = {
-                      continueOnError: true,
-                      dataOp: {
-                        sourceId: "4HmiQ7TbnQsoscHLeGceTF",
-                        opId: "4a6ec964-0b4f-41d2-8816-c65066135dc2",
-                        userArgs: {
-                          headers: [
-                            `Bearer 78445fbc64d40826408f50653f9692f59da74b601bd3ec841acab680a038a1d81183ed56aa6c0a71790a3c142713274384030d61af59ab7420b1d2b330e93307b598ad67e7a2793e72b8eb007ae32f0237606997b7ae5053f28be4edd943a35c1293fde44436c4744f3c8ef1ab935b221911b2bc2dd21a639b8a6d443580b536`
-                          ],
+              $steps["axiosRequest"] = $ctx.params.id
+                ? (async () => {
+                  const API_URL = "https://tukafe-api-49kty.ondigitalocean.app/api/works";
+                  const TOKEN = "78445fbc64d40826408f50653f9692f59da74b601bd3ec841acab680a038a1d81183ed56aa6c0a71790a3c142713274384030d61af59ab7420b1d2b330e93307b598ad67e7a2793e72b8eb007ae32f0237606997b7ae5053f28be4edd943a35c1293fde44436c4744f3c8ef1ab935b221911b2bc2dd21a639b8a6d443580b536";
+                  
+                  const queryParams = new URLSearchParams({
+                    "filters[isDone]": false,
+                    "filters[branch]": $ctx.params.id,
+                    populate: "*"
+                  });
 
-                          params: [$ctx.params.id]
-                        },
-                        cacheKey: null,
-                        invalidatedKeys: null,
-                        roleId: null
-                      }
-                    };
-                    return (async ({ dataOp, continueOnError }) => {
-                      try {
-                        const response = await executePlasmicDataOp(dataOp, {
-                          userAuthToken: dataSourcesCtx?.userAuthToken,
-                          user: dataSourcesCtx?.user
-                        });
-                        await plasmicInvalidate(dataOp.invalidatedKeys);
-                        return response;
-                      } catch (e) {
-                        if (!continueOnError) {
-                          throw e;
-                        }
-                        return e;
-                      }
-                    })?.apply(null, [actionArgs]);
+                  const fetchResponse = await fetch(
+                    `${API_URL}?${queryParams.toString()}`,
+                    {
+                      headers: { Authorization: `Bearer ${ TOKEN }` }
+                    }
+                  );
+
+                  if (!fetchResponse.ok) {
+                    throw new Error(
+                      `Request failed with status ${fetchResponse.status}`
+                    );
+                  }
+
+                  const response = { data: await fetchResponse.json() };
+
+                  return response;
                   })()
                 : undefined;
               if (
-                $steps["getRequest"] != null &&
-                typeof $steps["getRequest"] === "object" &&
-                typeof $steps["getRequest"].then === "function"
+                $steps["axiosRequest"] != null &&
+                typeof $steps["axiosRequest"] === "object" &&
+                typeof $steps["axiosRequest"].then === "function"
               ) {
-                $steps["getRequest"] = await $steps["getRequest"];
+                $steps["axiosRequest"] = await $steps["axiosRequest"];
               }
               $steps["handleResponse"] = $ctx.params.id
                 ? (() => {
@@ -277,7 +270,7 @@ function PlasmicBranch__RenderFunc(props) {
                       customFunction: async () => {
                         return (() => {
                           $state.works.data =
-                            $steps.getRequest.data.response.data;
+                            $steps.axiosRequest.data.data;
                           return ($state.works.loading = false);
                         })();
                       }
